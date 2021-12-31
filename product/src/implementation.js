@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const products = [
   {
-    id: uuidv4(),
+    id: "0182d28b-b85a-498b-ac32-85a8c4b84207",
     thumbnail: "https://image.shutterstock.com/image-photo/paulo-brazil-august-24-2021-600w-2030992343.jpg",
     name: "Dorflex UNO",
     price: 3.55,
@@ -12,7 +12,7 @@ const products = [
     volume: 0.5,
   },
   {
-    id: uuidv4(),
+    id: "35ba768f-ccf3-44b9-a5b1-b64be041d9e6",
     thumbnail: "https://image.shutterstock.com/image-photo/huelva-spain-march-6-2021-600w-1930584752.jpg",
     name: "Paracetamol",
     price: 5.93,
@@ -21,7 +21,7 @@ const products = [
     volume: 0.8,
   },
   {
-    id: uuidv4(),
+    id: "1447a344-d20f-4be1-bffa-9ce0b8286965",
     thumbnail: "https://image.shutterstock.com/image-photo/cassilandia-mato-grosso-do-sul-600w-2078785111.jpg",
     name: "Cimegripe",
     price: 13.79,
