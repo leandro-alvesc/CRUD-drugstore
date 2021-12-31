@@ -55,7 +55,7 @@ const implementation = {
       : callback({ code: grpc.status.NOT_FOUND, details: "Not found" });
   },
 
-  register: (call, callback) => {
+  insert: (call, callback) => {
     let drugstore = call.request;
 
     drugstore.id = uuidv4();
@@ -68,13 +68,13 @@ const implementation = {
     let currentDrugstore = findDrugstore(request.id);
 
     if (currentDrugstore) {
-      currentDrugstore.logo = request.logo;
-      currentDrugstore.name = request.name;
-      currentDrugstore.cnpj = request.cnpj;
-      currentDrugstore.address = request.address;
-      currentDrugstore.business_hours = request.business_hours;
-      currentDrugstore.manager = request.manager;
-      currentDrugstore.phone_number = request.phone_number;
+      currentDrugstore.logo = request.logo || currentDrugstore.logo;
+      currentDrugstore.name = request.name || currentDrugstore.name;
+      currentDrugstore.cnpj = request.cnpj || currentDrugstore.cnpj;
+      currentDrugstore.address = request.address || currentDrugstore.address;
+      currentDrugstore.business_hours = request.business_hours || currentDrugstore.business_hours;
+      currentDrugstore.manager = request.manager || currentDrugstore.manager;
+      currentDrugstore.phone_number = request.phone_number || currentDrugstore.phone_number;
       callback(null, currentDrugstore);
     } else {
       callback({ code: grpc.status.NOT_FOUND, details: "Not found" });
