@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+service ProductService {
+  rpc GetAll (Empty) returns (GetAllResponse) {};
+  rpc GetById (GetByIdRequest) returns (Product) {};
+  rpc Insert (Product) returns (Product) {};
+  rpc Update (Product) returns (Product) {};
+  rpc Remove (GetByIdRequest) returns (Empty) {};
+}
+
+message Product {
+  string id = 1;
+  string thumbnail = 2;
+  string name = 3;
+  float price = 4;
+  repeated string ingredients = 5;
+  int32 availability = 6;
+  float volume = 7;
+}
+
+message Empty {}
+
+message GetByIdRequest {
+  string id = 1;
+}
+
+message GetAllResponse {
+  repeated Product products = 1;
+}
