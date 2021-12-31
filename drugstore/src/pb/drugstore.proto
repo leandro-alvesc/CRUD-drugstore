@@ -6,6 +6,12 @@ service DrugstoreService {
   rpc Insert (Drugstore) returns (Drugstore) {};
   rpc Update (Drugstore) returns (Drugstore) {};
   rpc Remove (GetByIdRequest) returns (Empty) {};
+  rpc GetAllHosts (Empty) returns (GetAllHostsResponse) {};
+  rpc GetHostById (GetHostByIdRequest) returns (HostDrugstore) {};
+  rpc InsertHost (HostDrugstore) returns (HostDrugstore) {};
+  rpc RemoveHost (HostDrugstore) returns (Empty) {};
+  rpc InsertDrugstoreToHost (UpdateHostDrugstoreRequest) returns (HostDrugstore) {};
+  rpc RemoveDrugstoreFromHost (UpdateHostDrugstoreRequest) returns (HostDrugstore) {};
 }
 
 message Drugstore {
@@ -19,12 +25,30 @@ message Drugstore {
   string phone_number = 8;
 }
 
+message HostDrugstore {
+  string id = 1;
+  repeated string drugstores = 2;
+}
+
 message Empty {}
 
 message GetByIdRequest {
   string id = 1;
 }
 
+message UpdateHostDrugstoreRequest {
+  string id = 1;
+  string drugstore = 2;
+}
+
 message GetAllResponse {
   repeated Drugstore drugstores = 1;
+}
+
+message GetHostByIdRequest {
+  string id = 1;
+}
+
+message GetAllHostsResponse {
+  repeated HostDrugstore hosts = 1;
 }
