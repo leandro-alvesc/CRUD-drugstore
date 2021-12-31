@@ -1,0 +1,16 @@
+{
+  "name": "product",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.4.5",
+    "@grpc/proto-loader": "^0.6.7",
+    "nodemon": "^2.0.15",
+    "uuid": "^8.3.2"
+  }
+}
