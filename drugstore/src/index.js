@@ -22,6 +22,6 @@ const drugstoreProto = grpc.loadPackageDefinition(packageDefinition);
 
 const server = new grpc.Server();
 server.addService(drugstoreProto.DrugstoreService.service, implementation);
-server.bindAsync("0.0.0.0:3334", grpc.ServerCredentials.createInsecure(), () => {
+server.bindAsync("localhost:3334", grpc.ServerCredentials.createInsecure(), () => {
   server.start();
 });
