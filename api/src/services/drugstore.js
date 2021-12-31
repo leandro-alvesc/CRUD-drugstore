@@ -12,9 +12,9 @@ const drugstoreDefinition = protoLoader.loadSync(
 
 const DrugstoreService = grpc.loadPackageDefinition(drugstoreDefinition).DrugstoreService;
 
-const drugstoreClient = new DrugstoreService(
+const DrugstoreClient = new DrugstoreService(
   "localhost:3334",
   grpc.credentials.createInsecure()
 );
 
-export default drugstoreClient;
+export default DrugstoreClient;

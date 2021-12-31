@@ -1,8 +1,8 @@
-import drugstoreClient from "../services/drugstore.js";
+import DrugstoreClient from "../services/drugstore.js";
 
 class DrugstoreController {
   async index(_, res) {
-    drugstoreClient.getAll(null, (err, data) => {
+    DrugstoreClient.getAll(null, (err, data) => {
       if (err) console.error(err);
 
       console.info("All drugstores", data);
@@ -13,7 +13,7 @@ class DrugstoreController {
   async show(req, res) {
     const { id } = req.params;
 
-    drugstoreClient.getById({ id: id }, (err, data) => {
+    DrugstoreClient.getById({ id: id }, (err, data) => {
       if (err) res.status(404).json({error: err.details});
       else res.json({ drugstore: data });
 
@@ -33,7 +33,7 @@ class DrugstoreController {
       phone_number: body.phone_number,
     };
 
-    drugstoreClient.insert(newDrugstore, (err, data) => {
+    DrugstoreClient.insert(newDrugstore, (err, data) => {
       if (err) res.status(400).json({error: err.details});
       else res.json({ drugstore: data });
 
@@ -55,7 +55,7 @@ class DrugstoreController {
       phone_number: body.phone_number,
     };
 
-    drugstoreClient.update(updateDrugstore, (err, data) => {
+    DrugstoreClient.update(updateDrugstore, (err, data) => {
       if (err) res.status(404).json({error: err.details});
       else res.json({ drugstore: data });
 
@@ -66,7 +66,7 @@ class DrugstoreController {
   async destroy(req, res) {
     const { id } = req.params;
 
-    drugstoreClient.remove({ id: id }, (err, data) => {
+    DrugstoreClient.remove({ id: id }, (err, data) => {
       if (err) res.status(404).json({error: err.details});
       else res.json();
 
