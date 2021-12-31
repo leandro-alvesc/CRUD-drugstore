@@ -9,7 +9,7 @@ service DrugstoreService {
 }
 
 message Drugstore {
-  int32 id = 1;
+  string id = 1;
   string logo = 2;
   string name = 3;
   string cnpj = 4;
@@ -22,7 +22,7 @@ message Drugstore {
 message Empty {}
 
 message GetByIdRequest {
-  int32 id = 1;
+  string id = 1;
 }
 
 message GetAllResponse {
