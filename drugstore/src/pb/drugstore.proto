@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+service DrugstoreService {
+  rpc GetAll (Empty) returns (GetAllResponse) {};
+  rpc GetById (GetByIdRequest) returns (Drugstore) {};
+  rpc Register (Drugstore) returns (Drugstore) {};
+  rpc Update (Drugstore) returns (Drugstore) {};
+  rpc Remove (GetByIdRequest) returns (Empty) {};
+}
+
+message Drugstore {
+  int32 id = 1;
+  string logo = 2;
+  string name = 3;
+  string cnpj = 4;
+  string address = 5;
+  string business_hours = 6;
+  string manager = 7;
+  string phone_number = 8;
+}
+
+message Empty {}
+
+message GetByIdRequest {
+  int32 id = 1;
+}
+
+message GetAllResponse {
+  repeated Drugstore drugstores = 1;
+}
